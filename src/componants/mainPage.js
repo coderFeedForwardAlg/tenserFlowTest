@@ -5,11 +5,11 @@ import * as tf from '@tensorflow/tfjs';
 const MainPage = () => {
     const [pairs, setPairs] = useState([
         { x: -1, y: -3},
-        {x: 0, y:-1}, 
+        {x: 0, y:0}, 
         {x: 1, y: 1},
-        {x: 2, y: 3},
-        {x: 5, y: 5},
-        {x: 4, y: 7}
+        {x: 2, y: 4},
+        {x: 4, y: 16},
+        {x: 5, y: 25}
     ]);
 
     const [modelState, setModelState] = useState({
@@ -56,10 +56,21 @@ const MainPage = () => {
 
         // Define a model for linear regression.
     const model = tf.sequential();
-    model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
+   // add hidden layers 
+   model.add(tf.layers.dense({ units: 128, activation: 'relu', inputShape: [1] }));
 
-    // Prepare the model for training: Specify the loss and the optimizer.
-    model.compile({ loss: 'meanSquaredError', optimizer: 'sgd' });
+   // Add another hidden layer with 64 units and ReLU activation
+   model.add(tf.layers.dense({ units: 64, activation: 'relu' }));
+   
+   // Add the output layer with 1 unit
+   model.add(tf.layers.dense({ units: 1 }));
+   
+   // Compile the model
+   model.compile({ optimizer: 'adam', loss: 'meanSquaredError' });
+
+
+
+
     const xs = tf.tensor2d(xValues, [xValues.length, 1]);
     const ys = tf.tensor2d(yValues, [yValues.length, 1]);
 
@@ -101,7 +112,7 @@ const MainPage = () => {
                     name="x"
                     data-index={index}
                     onChange={handelValuePairChange}
-                    type="number" pattern="[0-9]*" />
+                    type="number" pattern="[0-9.]*" />
                 <input
                     
                     value={val.y}
