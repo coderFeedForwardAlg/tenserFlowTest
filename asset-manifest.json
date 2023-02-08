@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/coderfeedforwardalg.github.io/tenserFlowTest,/static/css/main.e6c13ad2.css",
+    "main.js": "/coderfeedforwardalg.github.io/tenserFlowTest,/static/js/main.980d1717.js",
+    "static/js/787.385eb0f9.chunk.js": "/coderfeedforwardalg.github.io/tenserFlowTest,/static/js/787.385eb0f9.chunk.js",
+    "index.html": "/coderfeedforwardalg.github.io/tenserFlowTest,/index.html",
+    "main.e6c13ad2.css.map": "/coderfeedforwardalg.github.io/tenserFlowTest,/static/css/main.e6c13ad2.css.map",
+    "main.980d1717.js.map": "/coderfeedforwardalg.github.io/tenserFlowTest,/static/js/main.980d1717.js.map",
+    "787.385eb0f9.chunk.js.map": "/coderfeedforwardalg.github.io/tenserFlowTest,/static/js/787.385eb0f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.980d1717.js"
+  ]
+}
