@@ -24,11 +24,32 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    
     <title>React App</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
   </head>
+  
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    
     <div id="root"></div>
+    <script script src="https://cdn.jsdelivr.net/npm/@paulhoughton/pyodide@0.17.0/pyodide.js"></script>
+    <!-- Include your React app's JavaScript bundle -->
+
+      <script type="text/javascript">
+        const script = 
+`for i in range(10):
+  print("hi")`;
+      async function main(){
+        let pyodide = await loadPyodide();
+        console.log(pyodide.runPython(script));
+      }
+      main();
+    </script>
+
+    
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -40,4 +61,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  
 </html>

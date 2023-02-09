@@ -1,6 +1,8 @@
-import {useState} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import update from 'immutability-helper';
 import * as tf from '@tensorflow/tfjs';
+
+
 
 const MainPage = () => {
     const [pairs, setPairs] = useState([
@@ -96,6 +98,10 @@ const MainPage = () => {
     }
 
 
+
+
+
+
     return ( 
     <div>
         <h1> Training on X, Y data</h1>
@@ -141,7 +147,7 @@ const MainPage = () => {
     <h2>Predicting</h2>
     <input
         
-        value={modelState.valueToPredict}
+        value={modelState.valuseToPredict}
         name="valueToPredict"
         onChange={handleModleChange}
         type="number"
@@ -155,6 +161,10 @@ const MainPage = () => {
         disabled={!modelState.trained}>
         Predict
     </button>
+
+
+
+
 </div>
     </div> );
 }
