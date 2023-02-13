@@ -37,28 +37,6 @@
     
     <!-- Include your React app's JavaScript bundle -->
 
-      <script type="text/javascript">
-        
-        const script = `
-import plotly.offline as pyo
-import plotly.graph_objs as go
-
-trace = go.Scatter(x=[1, 2, 3], y=[4, 5, 6])
-data = [trace]
-layout = go.Layout(title='My Plot')
-fig = go.Figure(data=data, layout=layout)
-pyo.plot(fig, filename='public/my_plot.html')
-6
-`;
-      async function main(){
-        let pyodide = await loadPyodide();
-        await pyodide.loadPackage('plotly');
-        await micropip.install("plotly");
-
-        console.log(pyodide.runPython(script));
-      }
-      main();
-    </script>
 
     
 

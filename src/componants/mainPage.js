@@ -5,6 +5,7 @@ import * as tf from '@tensorflow/tfjs';
 
 
 const MainPage = () => {
+    
     const [pairs, setPairs] = useState([
         { x: -1, y: -3},
         {x: 0, y:0}, 
@@ -96,8 +97,17 @@ const MainPage = () => {
             predictedValue: predictedValue,
         });
     }
-
-
+    
+    const getRequest =  () =>{
+        fetch("https://api.publicapis.org/entries")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 
 
 
@@ -160,6 +170,11 @@ const MainPage = () => {
         onClick={handlePredict}
         disabled={!modelState.trained}>
         Predict
+    </button>
+
+
+    <button onClick={getRequest}>
+        Get Request 
     </button>
 
 
